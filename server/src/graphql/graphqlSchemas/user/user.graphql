@@ -1,0 +1,26 @@
+type User {
+    email: String!
+    password: String!
+    username: String!
+    address: String
+    isAdmin: Boolean!
+}
+
+type Response {
+    success: Boolean!
+    data: String
+    message: String
+}
+type UserResponse {
+    success: Boolean!
+    data: User!
+    message: String
+}
+type Query {
+    authMe: UserResponse!
+}
+type Mutation {
+    signup(email: String, password: String, username: String, address: String): Response!
+    login(email: String, password: String): Response!
+    loginAdmin(email: String, password: String): Response!
+}

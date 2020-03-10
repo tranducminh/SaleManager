@@ -1,0 +1,33 @@
+type Goods {
+    id: String!
+    name: String!
+    quantity: Int!
+    price: Int!
+    currencyUnit: String!
+    description: String
+    status: String!
+    image: String
+    userID: String!
+}
+type Query {
+    getAllGoods: [Goods]
+}
+type Res {
+    id: String
+    goods: Goods
+}
+type Mutation {
+    createGoods(
+        name: String
+        quantity: Int
+        price: Int
+        currencyUnit: String
+        description: String
+        image: String
+        userID: String
+    ): Goods!
+    getManyGoods(arrayID: [String]): [Res]
+    getGoods(id: String): Goods!
+    updateGoods(id: String): Goods!
+    buyGoods(arrayID: [String]): Boolean
+}
